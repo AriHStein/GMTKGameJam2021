@@ -1,0 +1,52 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "Game",
+            "id": "ea470c08-6c9c-4cc1-a49e-b8464e62bda1",
+            "actions": [
+                {
+                    "name": "FlipRight",
+                    "type": "Button",
+                    "id": "6e1d89d1-602b-418d-a1b6-c0132e15e53d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "FlipLeft",
+                    "type": "Button",
+                    "id": "660366c1-e66d-433b-a16f-48b58ce47b93",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "63b43e49-a4c8-45b2-9b05-7c2ae10c2227",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FlipRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26bd7181-6f6e-49e9-966c-a7db1c408568",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FlipLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
