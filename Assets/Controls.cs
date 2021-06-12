@@ -33,6 +33,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""LaunchBall"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf0d6e75-649d-4292-ab39-5b4db98b5685"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -57,6 +65,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""FlipLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d34cfefd-2f3a-4002-b420-605ecd6b15ce"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LaunchBall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -67,6 +86,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_FlipRight = m_Game.FindAction("FlipRight", throwIfNotFound: true);
         m_Game_FlipLeft = m_Game.FindAction("FlipLeft", throwIfNotFound: true);
+        m_Game_LaunchBall = m_Game.FindAction("LaunchBall", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -118,12 +138,14 @@ public class @Controls : IInputActionCollection, IDisposable
     private IGameActions m_GameActionsCallbackInterface;
     private readonly InputAction m_Game_FlipRight;
     private readonly InputAction m_Game_FlipLeft;
+    private readonly InputAction m_Game_LaunchBall;
     public struct GameActions
     {
         private @Controls m_Wrapper;
         public GameActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @FlipRight => m_Wrapper.m_Game_FlipRight;
         public InputAction @FlipLeft => m_Wrapper.m_Game_FlipLeft;
+        public InputAction @LaunchBall => m_Wrapper.m_Game_LaunchBall;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -139,6 +161,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @FlipLeft.started -= m_Wrapper.m_GameActionsCallbackInterface.OnFlipLeft;
                 @FlipLeft.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnFlipLeft;
                 @FlipLeft.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnFlipLeft;
+                @LaunchBall.started -= m_Wrapper.m_GameActionsCallbackInterface.OnLaunchBall;
+                @LaunchBall.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnLaunchBall;
+                @LaunchBall.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnLaunchBall;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -149,6 +174,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @FlipLeft.started += instance.OnFlipLeft;
                 @FlipLeft.performed += instance.OnFlipLeft;
                 @FlipLeft.canceled += instance.OnFlipLeft;
+                @LaunchBall.started += instance.OnLaunchBall;
+                @LaunchBall.performed += instance.OnLaunchBall;
+                @LaunchBall.canceled += instance.OnLaunchBall;
             }
         }
     }
@@ -157,5 +185,6 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnFlipRight(InputAction.CallbackContext context);
         void OnFlipLeft(InputAction.CallbackContext context);
+        void OnLaunchBall(InputAction.CallbackContext context);
     }
 }

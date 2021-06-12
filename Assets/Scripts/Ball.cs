@@ -8,7 +8,7 @@ public class Ball : MonoBehaviour
     private Rigidbody body;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         body = GetComponent<Rigidbody>();
     }

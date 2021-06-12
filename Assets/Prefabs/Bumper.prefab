@@ -1507,4 +1507,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1249b4cfa436d48b169b34991a3b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bumpForce: 30
+  cooldown: 1
+  bumpForce: 60
